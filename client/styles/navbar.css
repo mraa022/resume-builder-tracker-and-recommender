@@ -1,0 +1,29 @@
+/* Navbar styles */
+nav {
+    background-color: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0; /* Added to start the navbar on the left side */
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1em;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #67c5ff;
+  }
+  
+  body {
+    margin-top: 60px; /* Adjust margin-top to accommodate fixed navbar height */
+  }
+  

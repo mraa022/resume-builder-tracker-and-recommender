@@ -1,0 +1,44 @@
+.job-wrapper {
+    position: relative;
+  }
+  
+  .checkbox-container {
+    position: absolute;
+    top: 0%; /* Adjust as needed */
+    right: 0%; /* Adjust as needed */
+  }
+  
+  .checkbox {
+    opacity: 0; /* Hide default checkbox */
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px; /* Adjust checkbox size */
+    height: 20px; /* Adjust checkbox size */
+    border: 2px solid #555; /* Checkbox border color */
+    border-radius: 4px; /* Checkbox border radius */
+    background-color: white; /* Checkbox background color */
+    transition: transform 0.3s ease-in-out; /* Transition for hover effect */
+  }
+  
+  /* Checkbox checked style */
+  .checkbox:checked + .checkmark:after {
+    content: '✔'; /* Checkmark symbol */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #2196F3; /* Checkmark color when checked */
+  }
+  
+  /* Hover effect for the checkbox */
+  .checkbox-container:hover .checkmark {
+    transform: scale(1.1); /* Adjust size on hover */
+  }
+  
