@@ -13,12 +13,16 @@ import JobsList from './pages/JobsList'
 import ProjectsList from './pages/ProjectsList'
 import PickJobs from './pages/PickJobs'
 import PickProjects from './pages/PickProjects'
+import CreateEducation from './pages/CreateEducation'
+import PickEducation from './pages/PickEducation'
 import axios from 'axios'
 
 import {Toaster} from 'react-hot-toast'
 import {UserContextProvider} from '../context/userContext'
 
 import {UserContext} from '../context/userContext'
+import SlectResumeCategory from './pages/SelectResumeCategory'
+
 
 axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true
@@ -44,7 +48,9 @@ function App() {
         <Route path='/add_project' element={<AddProject/>} />
         <Route path='/pick_jobs' element={<PickJobs/>} />
         <Route path='/pick_projects' element={<PickProjects/>} />
-        
+        <Route path='/create_education' element={<CreateEducation/>} />
+        <Route path='/pick_education' element={<PickEducation/>} />
+        <Route path='/pick_category' element={<SlectResumeCategory/>} />
         
       </Routes>
     </UserContextProvider>

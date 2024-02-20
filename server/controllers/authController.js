@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const Job = require('../models/job');
 const Project = require('../models/Project');
+const Education = require('../models/education')
+const Resume = require('../models/resume')
 const {hashPassword, comparePasswords} = require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 const test=(req,res)=>{
@@ -203,7 +205,6 @@ const addProject = async(req,res)=>{
                 projectSubtitle: projectSubtitle,
                 projectDescription: projectDescription
             })
-            console.log(project)
             res.json(project)
         })
         
@@ -258,6 +259,84 @@ const projectCategories = async(req,res)=>{
     }
 }
 
+const createEducation = async(req,res)=>{
+    const {token} = req.cookies
+    if(token){
+        jwt.verify(token,process.env.JWT_SECRET,{},async(err,user)=>{
+            const userEmail = user.email
+            if(err) throw err;
+            const {degree,school,city,country,startDate,endDate} = req.body;
+            const education = await Education.create({
+                userEmail: userEmail,
+                degree:degree,
+                school:school,
+                city:city,
+                country:country,
+                startDate:startDate,
+                endDate:endDate
+            })
+            res.json(education) 
+        })
+        
+    }
+    else{
+        res.json(null)
+    }
+}
+
+const allEducation = async(req,res)=>{
+    const {token} = req.cookies
+    if(token){
+        jwt.verify(token,process.env.JWT_SECRET,{},async(err,user)=>{
+            if(err) throw err;
+            
+               
+            const all_education = await Education.find({userEmail:user.email})
+            res.json(all_education)
+            
+        
+            
+        })
+        
+    }
+    else{
+        res.json(null)
+    }
+
+}
+
+
+const createResume = async(req,res)=>{
+    const {token} = req.cookies
+    if(token){
+        jwt.verify(token,process.env.JWT_SECRET,{},async(err,user)=>{
+            if(err) throw err;
+            
+            const projects = req.cookies.checkedProjects.split(',')
+            const education = req.cookies.checkedEducation
+            const jobs = req.cookies.checkedJobs.split(',')
+            userEmail = user.email 
+
+            const resume = await Resume.create({
+                userEmail:user.email,
+                resumeCategory: req.body.category,
+                Education: education,
+                Jobs: jobs,
+                Projects: projects
+
+            })
+            res.json(resume)
+            
+        
+            
+        })
+        
+    }
+    else{
+        res.json(null)
+    }
+}
+
    
 module.exports={
     test,
@@ -270,5 +349,8 @@ module.exports={
     addProject,
     allProjects,
     projectCategories,
-    jobCategories
+    jobCategories,
+    createEducation,
+    allEducation,
+    createResume
 }

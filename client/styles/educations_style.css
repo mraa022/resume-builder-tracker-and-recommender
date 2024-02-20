@@ -1,0 +1,8 @@
+.educations {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjusted to have 5 jobs per row */
+    gap: 14%; /* Adjusted gap to 2% */
+    padding: 2%; /* Adjusted padding to 2% */
+    overflow: scroll;
+    
+}

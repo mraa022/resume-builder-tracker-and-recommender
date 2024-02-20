@@ -80,7 +80,7 @@ export default function PickJobs() {
           setDictCheckedJobs(initialCheckedJobs);
           
         }
-      }, [jobs]);
+      }, [jobs,user]);
 
     useEffect(()=>{
         axios.get('/all_jobs/?'+'type='+jobType).then(({data})=>{
@@ -128,7 +128,7 @@ export default function PickJobs() {
             <button onClick={e=>{
                 console.log(checkedJobs);
                 Cookies.set('checkedJobs', checkedJobs);
-                //navigate('/pick_projects');
+                navigate('/pick_projects');
             }}>SUBMIT</button>
             </div>
             

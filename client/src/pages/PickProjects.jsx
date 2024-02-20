@@ -5,6 +5,7 @@ import Project from '../components/Project/Project';
 import {UserContext} from '../../context/userContext'
 import '../../styles/projects_style.css'
 import Cookies from 'js-cookie'; // Import js-cookie
+import {useNavigate} from 'react-router-dom'
 const getProjects = async()=>{
     return await axios.get('/all_projects')
 }
@@ -29,7 +30,7 @@ function createProject(project,isChecked, toggleCheckbox){
 }
 
 export default function PickProjects() {
-
+    const navigate = useNavigate();
     const [projects, setProjects] = useState(null); // used to get a list of projects from database
 
     const [projectType,setProjectType] = useState('all'); // used to keep track of the project category user wants 
@@ -83,7 +84,7 @@ export default function PickProjects() {
           }, {});
           setDictCheckedProjects(initialCheckedProjects);
         }
-      }, [projects]);
+      }, [projects,user]);
 
 
     useEffect(()=>{
@@ -114,7 +115,7 @@ export default function PickProjects() {
             <button onClick={e=>{
                 console.log(checkedProjects);
                 Cookies.set('checkedProjects', checkedProjects);
-                //navigate('/');
+                navigate('/pick_education');
             }}>SUBMIT</button>
 
             </div>

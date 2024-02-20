@@ -17,6 +17,7 @@ export default function Navbar() {
           <Link to = '/add_project'>AddProject</Link>
           <Link to = '/all_projects'>AllProjects</Link>
           <Link to = '/pick_jobs'>AddResume</Link>
+          <Link to = '/create_education'>AddEducation</Link>
       </nav>
     )
   }
@@ -30,3 +31,5 @@ export default function Navbar() {
     )
   }
 }
+
+
