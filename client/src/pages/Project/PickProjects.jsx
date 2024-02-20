@@ -1,13 +1,13 @@
 import {useContext} from 'react';
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
-import Project from '../components/Project/Project';
-import {UserContext} from '../../context/userContext'
-import '../../styles/projects_style.css'
+import Project from '../.././components/Project/Project';
+import {UserContext} from '../../../context/userContext'
+import '../../../styles/projects_style.css'
 import Cookies from 'js-cookie'; // Import js-cookie
 import {useNavigate} from 'react-router-dom'
 const getProjects = async()=>{
-    return await axios.get('/all_projects')
+    return await axios.get('/project/all_projects')
 }
 
 function createProject(project,isChecked, toggleCheckbox){
@@ -64,10 +64,10 @@ export default function PickProjects() {
         
         if (user){
             
-            axios.get('/all_projects/?'+'type='+projectType).then(({data})=>{
+            axios.get('/project/all_projects/?'+'type='+projectType).then(({data})=>{
                 setProjects(data)
             });
-            axios.get('/all_categories').then(({data})=>{
+            axios.get('/project/all_categories').then(({data})=>{
                 
                 setProjectCategories(data)
             })
@@ -88,7 +88,7 @@ export default function PickProjects() {
 
 
     useEffect(()=>{
-        axios.get('/all_projects/?'+'type='+projectType).then(({data})=>{
+        axios.get('/project/all_projects/?'+'type='+projectType).then(({data})=>{
             setProjects(data)
         });
         setcheckedProjects([]);

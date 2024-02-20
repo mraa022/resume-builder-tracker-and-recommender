@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 
 export default function Logout() {
     const navigate = useNavigate()
-    axios.post('/logout');
+    axios.post('/auth/logout');
     navigate(0)
   return (
     <div>

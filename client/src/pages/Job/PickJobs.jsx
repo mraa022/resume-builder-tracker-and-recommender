@@ -3,14 +3,14 @@ import {useContext} from 'react';
 import React, { useState,useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import Job from '../components/Job/Job';
-import {UserContext} from '../../context/userContext'
-import '../../styles/jobs_style.css'
-import '../../styles/navbar.css'
-import '../../styles/add_job.css'
+import Job from '../../components/Job/Job';
+import {UserContext} from '../../../context/userContext'
+import '../../../styles/jobs_style.css'
+import '../../../styles/navbar.css'
+import '../../../styles/add_job.css'
 import Cookies from 'js-cookie'; // Import js-cookie
 const getJobs = async()=>{
-    return await axios.get('/all_jobs')
+    return await axios.get('/job/all_jobs')
 }
 
 
@@ -58,12 +58,12 @@ export default function PickJobs() {
     useEffect(() => {
         
         if (user){
-            axios.get('/all_jobs/?'+'type='+jobType).then(({data})=>{
+            axios.get('/job/all_jobs/?'+'type='+jobType).then(({data})=>{
                 setJobs(data)
 
                 
             });
-            axios.get('/all_jobcategories').then(({data})=>{
+            axios.get('/job/all_jobcategories').then(({data})=>{
                 
                 setJobCategories(data)
             })
@@ -83,7 +83,7 @@ export default function PickJobs() {
       }, [jobs,user]);
 
     useEffect(()=>{
-        axios.get('/all_jobs/?'+'type='+jobType).then(({data})=>{
+        axios.get('/job/all_jobs/?'+'type='+jobType).then(({data})=>{
             setJobs(data)
         });
         setCheckedJobs([]);

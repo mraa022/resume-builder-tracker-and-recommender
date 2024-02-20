@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import '../../styles/navbar.css'
+import '../../../styles/navbar.css'
 export default function AddProject() {
   const navigate = useNavigate();
     const [data,setData] = useState({
@@ -18,7 +18,7 @@ export default function AddProject() {
         const projectDescription = data.projectDescription.split('\n')
         try{
             axios.defaults.withCredentials = true
-            const {data} = await axios.post('/add_project',{
+            const {data} = await axios.post('/project/add_project',{
                 projectCategory:projectCategory,
                 projectTitle: projectTitle,
                 projectSubtitle: projectSubtitle,

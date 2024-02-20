@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const {registerUser,loginUser,getProfile,logOut} = require('../controllers/authController')
+const {addJob,allJobs,jobCategories} = require('../controllers/jobController')
 
 // middleware
 router.use(
@@ -11,10 +11,9 @@ router.use(
     })
 )
 
-router.post('/register',registerUser)
-router.post('/login',loginUser)
-router.get('/profile',getProfile)
-router.post('/logout',logOut)
+router.post('/add_job',addJob)
+router.get('/all_jobs',allJobs)
+router.get('/all_jobcategories',jobCategories)
 
 
 

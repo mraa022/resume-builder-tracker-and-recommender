@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import '../../styles/navbar.css'
+import '../../../styles/navbar.css'
 export default function Login() {
   const navigate = useNavigate();
     const [data,setData] = useState({
@@ -14,7 +14,7 @@ export default function Login() {
         const {email,password} = data;
         try{
           axios.defaults.withCredentials = true
-          const {data} = await axios.post('/login',{
+          const {data} = await axios.post('/auth/login',{
             email,password,
             withCredentials: true,
       headers: { crossDomain: true, 'Content-Type': 'application/json' }
@@ -23,6 +23,7 @@ export default function Login() {
             toast.error(data.error)
           }
           else{
+            console.log("LOGED IN")
             setData({});
             navigate('/dashboard')
             navigate(0)

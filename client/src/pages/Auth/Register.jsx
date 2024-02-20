@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router'
-import '../../styles/navbar.css'
+import '../../../styles/navbar.css'
 export default function Register() {
   const navigate = useNavigate()
     const [data,setData] = useState({
@@ -15,7 +15,7 @@ export default function Register() {
         e.preventDefault()
         const {name,email,password} = data;
         try{
-          const{data} = await axios.post('/register',{
+          const{data} = await axios.post('/auth/register',{
             name,email,password
           })
           if (data.error){

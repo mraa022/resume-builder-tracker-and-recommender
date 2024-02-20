@@ -3,13 +3,13 @@ import {useContext} from 'react';
 import React, { useState,useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import Education from '../components/Education/Education';
-import {UserContext} from '../../context/userContext'
-import '../../styles/educations_style.css'
-import '../../styles/pick_education_style.css'
+import Education from '../../components/Education/Education';
+import {UserContext} from '../../../context/userContext'
+import '../../../styles/educations_style.css'
+import '../../../styles/pick_education_style.css'
 import Cookies from 'js-cookie'; // Import js-cookie
 const getJobs = async()=>{
-    return await axios.get('/all_jobs')
+    return await axios.get('/education/all_jobs')
 }
 
 
@@ -62,7 +62,7 @@ export default function PickJobs() {
     useEffect(() => {
         
         if (user){
-            axios.get('/all_education/').then(({data})=>{
+            axios.get('/education/all_education/').then(({data})=>{
                 setEducation(data)
                 
 

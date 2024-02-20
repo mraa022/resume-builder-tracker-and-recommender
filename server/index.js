@@ -14,13 +14,20 @@ mongoose.connect(process.env.MONGO_URL)
     console.log('Database not connected', err)
 });
 
+
+
 // middleware
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended:false}))
 
-app.use('/',require('./routes/authRoutes'))
 
+// routes
+app.use('/auth',require('./routes/authRoutes'))
+app.use('/education',require('./routes/educationRoutes'))
+app.use('/job',require('./routes/jobRoutes'))
+app.use('/project',require('./routes/projectRoutes'))
+app.use('/resume',require('./routes/resumeRoutes'))
 
 
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import '../../styles/form_style.css'
+import '../../../styles/form_style.css'
 export default function AddJob() {
   const navigate = useNavigate();
     const [data,setData] = useState({
@@ -22,7 +22,7 @@ export default function AddJob() {
         const jobResponsibilities = data.jobResponsibilities.split('\n')
         try{
             axios.defaults.withCredentials = true
-            const {data} = await axios.post('/add_job',{
+            const {data} = await axios.post('/job/add_job',{
                 jobTitle: jobTitle,
                 jobCategory:jobCategory,
                 companyName: companyName,

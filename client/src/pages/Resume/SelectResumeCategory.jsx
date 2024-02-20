@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router'
-import '../../styles/navbar.css'
+import '../../../styles/navbar.css'
 export default function SlectResumeCategory() {
   const navigate = useNavigate()
     const [data,setData] = useState({
@@ -13,7 +13,7 @@ export default function SlectResumeCategory() {
         e.preventDefault()
         const {category} = data;
         try{
-          const{data} = await axios.post('/create_resume',{
+          const{data} = await axios.post('/resume/create_resume',{
            category
           })
           if (data.error){

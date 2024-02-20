@@ -1,14 +1,14 @@
 import {useContext} from 'react';
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
-import Project from '../components/Project/Project';
-import {UserContext} from '../../context/userContext'
-import '../../styles/projects_style.css'
+import Project from '../../components/Project/Project';
+import {UserContext} from '../../../context/userContext'
+import '../../../styles/projects_style.css'
 function createProject(project){
     return <Project key = {project._id} projectTitle = {project.projectTitle} projectSubtitle = {project.projectSubtitle} projectDescription = {project.projectDescription}/>
 }
 const getProjects = async()=>{
-    return await axios.get('/all_projects')
+    return await axios.get('/project/all_projects')
 }
 
 export default function ProjectsList() {
@@ -25,10 +25,10 @@ export default function ProjectsList() {
         
         if (user){
             
-            axios.get('/all_projects/?'+'type='+projectType).then(({data})=>{
+            axios.get('/project/all_projects/?'+'type='+projectType).then(({data})=>{
                 setProjects(data)
             });
-            axios.get('/all_categories').then(({data})=>{
+            axios.get('/project/all_categories').then(({data})=>{
                 
                 setProjectCategories(data)
             })
@@ -39,7 +39,7 @@ export default function ProjectsList() {
 
 
     useEffect(()=>{
-        axios.get('/all_projects/?'+'type='+projectType).then(({data})=>{
+        axios.get('/project/all_projects/?'+'type='+projectType).then(({data})=>{
             setProjects(data)
         });
     },[projectType])

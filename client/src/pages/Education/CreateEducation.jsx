@@ -17,7 +17,7 @@ export default function CreateEducation() {
         e.preventDefault()
         const {degree,school,city,country,startDate,endDate} = data;
         try{
-          const{data} = await axios.post('/add_education',{
+          const{data} = await axios.post('/education/add_education',{
             degree,school,city,country,startDate,endDate
           })
           if (data.error){

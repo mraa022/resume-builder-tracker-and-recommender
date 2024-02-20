@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const {registerUser,loginUser,getProfile,logOut} = require('../controllers/authController')
+const {createEducation, allEducation} = require('../controllers/educationController')
 
 // middleware
 router.use(
@@ -11,10 +11,10 @@ router.use(
     })
 )
 
-router.post('/register',registerUser)
-router.post('/login',loginUser)
-router.get('/profile',getProfile)
-router.post('/logout',logOut)
+router.post('/add_education',createEducation)
+router.get('/all_education',allEducation)
+
+
 
 
 
