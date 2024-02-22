@@ -1,0 +1,16 @@
+
+.applications .application {
+    display: grid;
+    background-color: #8aa863;
+    border-radius: 30px;
+    padding: 20%;
+    box-shadow: 0 2% 8% rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+    width: 20em;
+  }
+  
+  .applications .application:hover {
+    transform: scale(1.05);
+  }
+  

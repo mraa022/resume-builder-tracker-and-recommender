@@ -28,7 +28,7 @@ app.use('/education',require('./routes/educationRoutes'))
 app.use('/job',require('./routes/jobRoutes'))
 app.use('/project',require('./routes/projectRoutes'))
 app.use('/resume',require('./routes/resumeRoutes'))
-
+app.use('/application',require('./routes/applicationRoutes'))
 
 
 

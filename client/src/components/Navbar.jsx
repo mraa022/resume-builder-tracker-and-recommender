@@ -18,6 +18,8 @@ export default function Navbar() {
           <Link to = '/all_projects'>AllProjects</Link>
           <Link to = '/pick_jobs'>AddResume</Link>
           <Link to = '/create_education'>AddEducation</Link>
+          <Link to = '/resumes_list'>ResumesList</Link>
+          <Link to = '/pick_resume'>ApplyToJob</Link>
       </nav>
     )
   }

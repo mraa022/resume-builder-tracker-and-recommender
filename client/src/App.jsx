@@ -22,6 +22,10 @@ import {UserContextProvider} from '../context/userContext'
 
 import {UserContext} from '../context/userContext'
 import SlectResumeCategory from './pages/Resume/SelectResumeCategory'
+import ResumesList from './pages/Resume/ResumesList'
+import PickResume from './pages/Application/PickResume'
+import JobInformation from './pages/Application/JobInformation'
+import ApplicationList from './pages/Application/ApplicationList'
 
 
 axios.defaults.baseURL = 'http://localhost:8000'
@@ -51,6 +55,10 @@ function App() {
         <Route path='/create_education' element={<CreateEducation/>} />
         <Route path='/pick_education' element={<PickEducation/>} />
         <Route path='/pick_category' element={<SlectResumeCategory/>} />
+        <Route path='/resumes_list' element={<ResumesList/>} />
+        <Route path='/job_info' element={<JobInformation/>} />
+        <Route path='/pick_resume' element={<PickResume/>} />
+        <Route path='/application_list' element={<ApplicationList/>} />
         
       </Routes>
     </UserContextProvider>

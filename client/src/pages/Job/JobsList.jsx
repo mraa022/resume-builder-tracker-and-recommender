@@ -50,8 +50,8 @@ export default function JobsList() {
                 <label>Choose job category to search by</label>
                 <select value={jobType} onChange={event=>{setJobType(event.target.value)}}>
                     <option>all</option>
-                    {jobCategories.map((category)=>{
-                        return <option>{category}</option>
+                    {jobCategories.map((category,index)=>{
+                        return <option key={index}>{category}</option>
                     })}
                     
                 </select>

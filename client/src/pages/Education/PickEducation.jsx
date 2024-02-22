@@ -56,9 +56,7 @@ export default function PickJobs() {
 
 
 
-    useEffect(()=>{
-        console.log("CHANGED TO ",selectedEducation)
-    },[selectedEducation])
+   
     useEffect(() => {
         
         if (user){
