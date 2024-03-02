@@ -10,28 +10,6 @@ import html2pdf from 'html2pdf.js';
 import { saveAs } from 'file-saver';
 
 
-function downloadResume(resume) {
-    // Assume 'resume' contains the HTML content
-    const element = document.createElement('div');
-    element.innerHTML = resume;
-  
-    // Convert HTML to PDF with A4 landscape paper size
-    html2pdf()
-      .from(element)
-      .set({
-        filename: 'resume.pdf',
-        pagebreak: { mode: 'avoid-all', before: '.page-break' },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
-      })
-      .save()
-      .then(() => {
-        console.log('PDF downloaded successfully');
-      })
-      .catch((error) => {
-        console.error('Error downloading PDF:', error);
-      });
-  }
-
 
 export default function ResumesList() {
 
