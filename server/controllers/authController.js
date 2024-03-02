@@ -39,6 +39,7 @@ const registerUser = async(req,res)=>{
 
 
 const loginUser = async(req,res)=>{
+    console.log("GOT HERE")
     try{
         const {email,password} = req.body
         // check if user exists 

@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 const addJob = async(req,res)=>{
     const {jobTitle,companyName,city,country,jobResponsibilities,jobCategory} = req.body
     
-    const startDate = new Date(req.body.startDate)
-    const endDate = new Date(req.body.endDate)
+    const startDate = req.body.startDate
+    const endDate = req.body.endDate
     const {token} = req.cookies
     
     if(token){

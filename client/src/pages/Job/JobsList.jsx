@@ -6,9 +6,8 @@ import {UserContext} from '../../../context/userContext'
 import '../../../styles/jobs_style.css'
 import '../../../styles/navbar.css'
 function createJob(job){
-    const startDate = new Date(job.startDate).toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}) 
-    const endDate = new Date(job.endDate).toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}) 
-    return <Job key = {job._id} jobTitle={job.jobTitle} companyTitle = {job.companyName} responsibilities = {job.jobResponsibilities} startDate={startDate} endDate={endDate}/>
+    
+    return <Job key = {job._id} jobTitle={job.jobTitle} companyTitle = {job.companyName} responsibilities = {job.jobResponsibilities} startDate={job.startDate} endDate={job.endDate}/>
 }
 const getJobs = async()=>{
     return await axios.get('/job/all_jobs')

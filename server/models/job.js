@@ -6,8 +6,8 @@ const jobSchema = new Schema({
     jobCategory:String,
     jobTitle: String,
     companyName: String,
-    startDate: Date,
-    endDate: Date,
+    startDate: String,
+    endDate: String,
     city: String,
     country: String,
     jobResponsibilities: [String]
