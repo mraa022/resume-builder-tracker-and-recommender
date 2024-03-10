@@ -7,7 +7,7 @@ const {registerUser,loginUser,getProfile,logOut} = require('../controllers/authC
 router.use(
     cors({
         credentials: true,
-        origin: 'http://localhost:5173'
+        origin: 'https://resume-builder-and-recommeder.firebaseapp.com/'
     })
 )
 

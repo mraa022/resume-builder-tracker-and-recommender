@@ -7,7 +7,7 @@ const {createResume,resumeCategory,resumesList,resumePreview,recommendResume,sor
 router.use(
     cors({
         credentials: true,
-        origin: 'http://localhost:5173'
+        origin: 'https://resume-builder-and-recommeder.firebaseapp.com/'
     })
 )
 
