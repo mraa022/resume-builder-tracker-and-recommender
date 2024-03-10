@@ -30,7 +30,7 @@ import RecommendResume from './pages/Resume/RecommendResume'
 import RecommendedResumes from './pages/Resume/RecommendedResumes'
 
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'https://resume-builder-tracker-and-recommender-server-jkvdw2xxd.vercel.app/'
 axios.defaults.withCredentials = true
 
 function App() {
