@@ -14,7 +14,9 @@ mongoose.connect(process.env.MONGO_URL)
     console.log('Database not connected', err)
 });
 
-
+app.get('/',(req,res)=>{
+    res.send('Server is running')
+})
 
 // middleware
 app.use(express.json())
