@@ -7,7 +7,7 @@ const {createApplication, getApplications} = require('../controllers/application
 router.use(
     cors({
         credentials: true,
-        origin: 'https://tic-tac-toe-trainer.web.app'
+        origin: 'https://resume-builder-and-recommeder.web.app'
 
     })
 )

@@ -7,7 +7,7 @@ const {addJob,allJobs,jobCategories} = require('../controllers/jobController')
 router.use(
     cors({
         credentials: true,
-        origin: 'https://tic-tac-toe-trainer.web.app'
+        origin: 'https://resume-builder-and-recommeder.web.app'
 
     })
 )

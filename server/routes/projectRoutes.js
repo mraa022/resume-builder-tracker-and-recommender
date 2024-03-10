@@ -7,7 +7,7 @@ const {addProject,allProjects,projectCategories} = require('../controllers/proje
 router.use(
     cors({
         credentials: true,
-        origin: 'https://tic-tac-toe-trainer.web.app'
+        origin: 'https://resume-builder-and-recommeder.web.app'
 
     })
 )
