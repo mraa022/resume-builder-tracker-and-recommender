@@ -7,7 +7,8 @@ const {createApplication, getApplications} = require('../controllers/application
 router.use(
     cors({
         credentials: true,
-        origin: 'https://resume-builder-and-recommeder.firebaseapp.com'
+        origin: 'https://resume-builder-and-recommeder.firebaseapp.com',
+        
     })
 )
 
