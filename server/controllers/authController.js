@@ -4,10 +4,10 @@ const {hashPassword, comparePasswords} = require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 const registerUser = async(req,res)=>{
     try {
-        const {name,email,password,phone,linkedIn} = req.body
-        if(!name){
+        const {username,password} = req.body
+        if(!username){
             return res.json({
-                error: 'name is required'
+                error: 'username is required'
             })
         };
 
@@ -17,10 +17,11 @@ const registerUser = async(req,res)=>{
             })
         };
 
-        const exist = await User.findOne({email});
+        const exist = await User.findOne({username});
         if (exist){
+            console.log("USER ALRE")
             return res.json({
-                error: "Email already in use"
+                error: "username already in use"
             })
         };
         
@@ -28,12 +29,8 @@ const registerUser = async(req,res)=>{
         // create user 
         const hashedPassword = await hashPassword(password)
         const user = await User.create({
-            password: hashedPassword,
-            name:name,
-            email:email,
-            phone:phone,
-            linkedIn:linkedIn
-            
+            username,
+            password: hashedPassword
         })
         return res.json(user)
     } catch (error) {
@@ -43,11 +40,10 @@ const registerUser = async(req,res)=>{
 
 
 const loginUser = async(req,res)=>{
-    
     try{
-        const {email,password} = req.body
+        const {username,password} = req.body
         // check if user exists 
-        const user = await User.findOne({email})
+        const user = await User.findOne({username})
         if (!user){
             return res.json({
                 error: 'No user found'
@@ -58,7 +54,7 @@ const loginUser = async(req,res)=>{
         if (match){
 
             jwt.sign(
-                { email: user.email, id: user._id, name: user.name },
+                { username: user.username, id: user._id},
                 process.env.JWT_SECRET,
                 {}, // Options object (you can include your options here)
                 (err, token) => {
@@ -76,7 +72,6 @@ const loginUser = async(req,res)=>{
               );
         }
         else{
-            console.log('wrong password')
             return res.json({
                 error: "passwords don't match"
             })
@@ -105,8 +100,10 @@ const logOut = (req,res)=>{
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 5 * 1000),
         httpOnly: true,
-        secure: true,sameSite: 'none'
+        secure: true,
+        sameSite: 'none'
     });
+
     res.status(200).json({ success: true, message: 'User logged out successfully' })
     
 }
