@@ -7,7 +7,8 @@ const {createResume,resumeCategory,resumesList,resumePreview,recommendResume,sor
 router.use(
     cors({
         credentials: true,
-        origin: 'https://resume-builder-and-recommeder.firebaseapp.com;;'
+        origin: 'https://tic-tac-toe-trainer.web.app'
+
     })
 )
 
