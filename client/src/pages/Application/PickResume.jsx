@@ -9,18 +9,18 @@ import '../../../styles/pick_resume_style.css'
 import Cookies from 'js-cookie'; // Import js-cookie
 function createResume(resume,selectedResume,setSelectedResume){
 
-    const job_names = resume.jobs.map(job=>job.jobTitle)
+    console.log(resume)
     return (
         <div className='resume-wrapper'>
-        <Resume key = {resume._id} job_names={job_names}/>
+        <Resume key = {resume._id} resume={resume['resume_html']}/>
         <div className="radio-button">
         <label className="checkbox-container">
           <input
             type="radio"
             name="resumeRadio"
-            value={resume._id}
-            checked={selectedResume == resume._id}
-            onChange={() => setSelectedResume(resume._id)}
+            value={resume['id']}
+            checked={selectedResume == resume['id']}
+            onChange={() => setSelectedResume(resume['id'])}
           />
           <span className="checkmark"></span>
         </label>
@@ -46,13 +46,15 @@ export default function PickResume() {
                 
                 setResumeCategory(data)
             })
+            console.log(resumes)
         }
         
         
     }, [user]); 
 
     useEffect(()=>{
-        axios.get('/resume/all_resumes/?'+'type='+resumeType).then(({data})=>{
+        axios.get('/resume/resumeHtml/?'+'type='+resumeType).then(({data})=>{
+            
             setResume(data)
         });
     },[resumeType]);

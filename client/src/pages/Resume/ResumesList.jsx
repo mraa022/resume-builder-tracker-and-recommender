@@ -35,6 +35,7 @@ export default function ResumesList() {
 
     useEffect(()=>{
         axios.get('/resume/resumeHtml/?'+'type='+resumeType).then(({data})=>{
+            
             setResume(data)
         });
     },[resumeType]);
@@ -59,17 +60,16 @@ export default function ResumesList() {
     
                 return (
                     <div>
-                        <Resume key = {resume._id} resume={resume}/>
+                        <Resume key = {resume._id} resume={resume['resume_html']}/>
                         <button onClick={e=>{
                             navigate('/application_list', {state: {resumeID: resume._id}})
-                            console.log("RESUME, ", resume._id, " clicked" )
                         }}>Stats</button>
                         <button onClick={e=>{
                             // open new window
                             var newWindow = window.open();
-                            newWindow.document.write(resume);
+                            newWindow.document.write(resume['resume_html']);
                             var element = document.createElement('a');
-                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resume));
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resume['resume_html']));
                             element.setAttribute('download', "resume.html");
                             element.style.display = 'none';
                             element.click();

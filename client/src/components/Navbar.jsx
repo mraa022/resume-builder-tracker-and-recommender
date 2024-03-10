@@ -10,8 +10,6 @@ export default function Navbar() {
     return (
       <nav>
           <Link to ='/'>Home</Link>
-          <Link to = '/dashboard'>Dashboard</Link>
-          <Link to = '/logout'>Logout</Link>
           <Link to = '/add_job'>AddJob</Link>
           <Link to = '/all_jobs'>AllJobs</Link>
           <Link to = '/add_project'>AddProject</Link>
@@ -20,6 +18,8 @@ export default function Navbar() {
           <Link to = '/create_education'>AddEducation</Link>
           <Link to = '/resumes_list'>ResumesList</Link>
           <Link to = '/pick_resume'>ApplyToJob</Link>
+          <Link to = '/recommend_resume'>Recommend resume</Link>
+          <Link to = '/logout'>Logout</Link>
       </nav>
     )
   }

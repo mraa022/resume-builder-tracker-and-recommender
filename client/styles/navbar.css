@@ -3,20 +3,20 @@ nav {
     background-color: #333;
     padding: 15px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:space-around;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
+    
+    width: 98%;
+   
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 30;
 }
 
 .nav-link {
@@ -34,11 +34,6 @@ nav {
     color: #67c5ff;
 }
 
-.hamburger {
-    display: none; /* Initially hide the hamburger icon */
-}
-
-/* Responsive styles */
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none; /* Hide the navbar links on smaller screens */
@@ -46,9 +41,9 @@ nav {
         position: absolute;
         top: 60px;
         left: 0;
-        width: 100%;
+        width: 98%;
         background-color: #333;
-        padding: 10px;
+        padding: 30px;
     }
 
     .nav-link {

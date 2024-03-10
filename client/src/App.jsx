@@ -26,6 +26,8 @@ import ResumesList from './pages/Resume/ResumesList'
 import PickResume from './pages/Application/PickResume'
 import JobInformation from './pages/Application/JobInformation'
 import ApplicationList from './pages/Application/ApplicationList'
+import RecommendResume from './pages/Resume/RecommendResume'
+import RecommendedResumes from './pages/Resume/RecommendedResumes'
 
 
 axios.defaults.baseURL = 'http://localhost:8000'
@@ -59,6 +61,8 @@ function App() {
         <Route path='/job_info' element={<JobInformation/>} />
         <Route path='/pick_resume' element={<PickResume/>} />
         <Route path='/application_list' element={<ApplicationList/>} />
+        <Route path='/recommend_resume' element={<RecommendResume/>} />
+         <Route path='/recommended_resumes' element={<RecommendedResumes/>} />
         
       </Routes>
     </UserContextProvider>

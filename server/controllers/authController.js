@@ -4,7 +4,7 @@ const {hashPassword, comparePasswords} = require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 const registerUser = async(req,res)=>{
     try {
-        const {name,email,password} = req.body
+        const {name,email,password,phone,linkedIn} = req.body
         if(!name){
             return res.json({
                 error: 'name is required'
@@ -28,8 +28,12 @@ const registerUser = async(req,res)=>{
         // create user 
         const hashedPassword = await hashPassword(password)
         const user = await User.create({
-            name,email,
-            password: hashedPassword
+            password: hashedPassword,
+            name:name,
+            email:email,
+            phone:phone,
+            linkedIn:linkedIn
+            
         })
         return res.json(user)
     } catch (error) {
@@ -62,7 +66,7 @@ const loginUser = async(req,res)=>{
                     console.log(err);
                     // Handle the error here if needed
                   } else {
-                    res.cookie('token', token).status(200).json({
+                    res.cookie('token', token,{ httpOnly: true,secure: true,sameSite: 'none'}).status(200).json({
                       success: true,
                       user,
                     });
@@ -99,6 +103,7 @@ const logOut = (req,res)=>{
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 5 * 1000),
         httpOnly: true,
+        secure: true,sameSite: 'none'
     });
     res.status(200).json({ success: true, message: 'User logged out successfully' })
     

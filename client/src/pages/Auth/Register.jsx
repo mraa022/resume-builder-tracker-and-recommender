@@ -9,7 +9,9 @@ export default function Register() {
     const [data,setData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        phone: '',
+        linkedIn: ''
     })
     const registerUser=async(e)=>{
         e.preventDefault()
@@ -44,6 +46,11 @@ export default function Register() {
           <label>Password</label>
           <input value={data.password} onChange={(e)=>setData({...data, password:e.target.value})} type='password' placeholder='enter Password...'></input>
 
+          <label>Phone</label>
+          <input value={data.phone} onChange={(e)=>setData({...data, phone:e.target.value})} type='text' placeholder='enter phone...'></input>
+
+          <label>LinkedIn</label>
+          <input value={data.linkedIn} onChange={(e)=>setData({...data, linkedIn:e.target.value})} type='text' placeholder='enter linkedIn url...'></input>
           <button type='submit'>Submit</button>
       </form>
     </div>

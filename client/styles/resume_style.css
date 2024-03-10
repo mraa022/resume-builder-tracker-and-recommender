@@ -25,7 +25,7 @@
     overflow: hidden;
     width: 120%;
     text-align: left !important;
-    overflow: scroll;
+    overflow: hidden;
     size: fit-content;
 }
 .hi #resumeHeaderId{
