@@ -7,7 +7,7 @@ const {createEducation, allEducation} = require('../controllers/educationControl
 router.use(
     cors({
         credentials: true,
-        origin: 'https://resume-builder-and-recom-6ace8.web.app'
+        origin: 'https://resume-ccdf1.web.app'
 
     })
 )

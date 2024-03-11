@@ -64,17 +64,7 @@ export default function ResumesList() {
                         <button onClick={e=>{
                             navigate('/application_list', {state: {resumeID: resume._id}})
                         }}>Stats</button>
-                        <button onClick={e=>{
-                            // open new window
-                            var newWindow = window.open();
-                            newWindow.document.write(resume['resume_html']);
-                            var element = document.createElement('a');
-                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resume['resume_html']));
-                            element.setAttribute('download', "resume.html");
-                            element.style.display = 'none';
-                            element.click();
-
-                        }}>View in new window & Download</button>
+                        
                     </div>
                 )
                 

@@ -7,7 +7,7 @@ const {createResume,resumeCategory,resumesList,resumePreview,recommendResume,sor
 router.use(
     cors({
         credentials: true,
-        origin: 'https://resume-builder-and-recom-6ace8.web.app'
+        origin: 'https://resume-ccdf1.web.app'
 
     })
 )
