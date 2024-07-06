@@ -15,7 +15,9 @@ export default function SlectResumeCategory() {
         try{
           const{data} = await axios.post('/resume/create_resume',{
            category
-          })
+          },{
+            withCredentials: true // Include this line to send cookies with the request
+        })
           if (data.error){
             toast.error(data.error)
           }
