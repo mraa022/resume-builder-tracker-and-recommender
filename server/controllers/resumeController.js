@@ -23,6 +23,7 @@ const findProject = async(projectId)=>{
 
 
 const createResume = async(req,res)=>{
+    console.log("KKKKKKK: ", req.cookies);
     const {token} = req.cookies
     if(token){
         jwt.verify(token,process.env.JWT_SECRET,{},async(err,user)=>{
