@@ -115,7 +115,7 @@ export default function PickProjects() {
             <button onClick={e=>{
                 console.log(checkedProjects);
                 Cookies.set('checkedProjects', checkedProjects,{
-                    domain: '.vercel.app', // Set domain if necessary
+                    domain: 'https://resume-builder-tracker-and-recommender-server.vercel.app/resume/create_resume', // Set domain if necessary
                     path: '/', // Set path if necessary
                     secure: true, // Ensure cookie is only sent over HTTPS
                     sameSite: 'None' // Required for cross-site requests, when applicable
