@@ -4,6 +4,9 @@ import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router'
 import '../../../styles/navbar.css'
+import Cookies from 'js-cookie';
+
+
 export default function SlectResumeCategory() {
   const navigate = useNavigate()
     const [data,setData] = useState({
@@ -12,10 +15,17 @@ export default function SlectResumeCategory() {
     const createResume=async(e)=>{
         e.preventDefault()
         const {category} = data;
+        const checkedEducation = Cookies.get('checkedEducation');
+        const checkedJobs = Cookies.get('checkedJobs');
+        const checkedProjects = Cookies.get('checkedProjects');
+      
         try{
           const{data} = await axios.post('/resume/create_resume',{
-           category
-          },withCredentials: true, // Include cookies in the request
+           category,
+          checkedEducation,
+          checkedJobs,
+          checkedProjects,
+          },withCredentials: true, // Include cookies in the request 
             headers: {
                 'Content-Type': 'application/json',
             })
