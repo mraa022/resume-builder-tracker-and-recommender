@@ -114,7 +114,12 @@ export default function PickProjects() {
             </div>
             <button onClick={e=>{
                 console.log(checkedProjects);
-                Cookies.set('checkedProjects', checkedProjects);
+                Cookies.set('checkedProjects', checkedProjects,{
+                    domain: '.vercel.app', // Set domain if necessary
+                    path: '/', // Set path if necessary
+                    secure: true, // Ensure cookie is only sent over HTTPS
+                    sameSite: 'None' // Required for cross-site requests, when applicable
+                });
                 navigate('/pick_education');
             }}>SUBMIT</button>
 
