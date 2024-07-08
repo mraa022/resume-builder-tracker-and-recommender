@@ -32,7 +32,11 @@ app.use('/project',require('./routes/projectRoutes'))
 app.use('/resume',require('./routes/resumeRoutes'))
 app.use('/application',require('./routes/applicationRoutes'))
 
-
+const corsOptions = {
+  origin: 'https://resume-ccdf1.web.app/', 
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
+app.use(cors(corsOptions));
 
 
 
