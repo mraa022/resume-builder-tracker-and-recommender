@@ -25,13 +25,16 @@ const findProject = async(projectId)=>{
 const createResume = async(req,res)=>{
     console.log("KKKKKKK: ", req.cookies);
     const {token} = req.cookies
+    const projects = req.body.checkedProjects
+    const education = req.body.checkedEducation
+    const jobs  = req.body.checkedJobs
     if(token){
         jwt.verify(token,process.env.JWT_SECRET,{},async(err,user)=>{
             if(err) throw err;
             
-            const projects = req.cookies.checkedProjects.split(',')
-            const education = req.cookies.checkedEducation
-            const jobs = req.cookies.checkedJobs.split(',')
+            // const projects = req.cookies.checkedProjects.split(',')
+            // const education = req.cookies.checkedEducation
+            // const jobs = req.cookies.checkedJobs.split(',')
             userEmail = user.email 
 
             const resume = await Resume.create({

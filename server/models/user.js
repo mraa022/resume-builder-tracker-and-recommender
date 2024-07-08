@@ -9,7 +9,8 @@ const userSchema = new Schema({
     },
     password: String,
     phone: String,
-    linkedIn: String
+    linkedIn: String,
+    
 });
 const UserModel  = mongoose.model('User',userSchema);
 module.exports = UserModel;
